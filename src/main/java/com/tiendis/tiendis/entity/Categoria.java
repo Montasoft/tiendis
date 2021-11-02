@@ -1,5 +1,9 @@
 package com.tiendis.tiendis.entity;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -7,17 +11,18 @@ import java.util.List;
 
 @Entity
 @Table(name = "categori4", schema= "public")
-
+@ToString @EqualsAndHashCode
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "IdCat", nullable = false, unique = true )
+
+    @Getter @Setter @Column(name = "IdCat", nullable = false, unique = true )
     private long id;
 
-    @Column(name = "nombre", length = 150)
+    @Getter @Setter @Column(name = "nombre", length = 150)
     private String nombre;
 
-    @Column(name = "descripcion", length = 250)
+    @Getter @Setter @Column(name = "descripcion", length = 250)
     private String descripcion;
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -32,7 +37,7 @@ public class Categoria {
         this.descripcion = descripcion;
     }
 
-    public long getId() {
+/*    public long getId() {
         return id;
     }
 
@@ -73,4 +78,6 @@ public class Categoria {
                 ", Productos=" + Productos +
                 '}';
     }
+    */
+
 }

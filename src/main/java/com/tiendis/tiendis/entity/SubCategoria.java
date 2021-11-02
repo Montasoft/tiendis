@@ -1,13 +1,15 @@
 package com.tiendis.tiendis.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "categori4", schema= "public")
+@Table(name = "Subcategori4", schema= "public")
 
 public class SubCategoria {
 
@@ -19,14 +21,28 @@ public class SubCategoria {
     @Column(name = "nombre", length = 150)
     private String nombre;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Categoria categoria;
+
     @Column(name = "descripcion", length = 250)
     private String descripcion;
+
+
 
     @OneToMany(mappedBy = "subCategoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<Producto> Productos = new ArrayList<>();
 
+
+    // *******  CONSTRUCTORES ***************
     public SubCategoria() {
+    }
+
+    public SubCategoria(String nombre, Categoria categoria, String descripcion) {
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.descripcion = descripcion;
     }
 
     public SubCategoria(String nombre, String descripcion) {

@@ -1,7 +1,10 @@
 package com.tiendis.tiendis;
 
 import com.tiendis.tiendis.Repository.CategoriaRepository;
+import com.tiendis.tiendis.Repository.ProductoRepository;
+import com.tiendis.tiendis.Repository.SubCategoriaRepository;
 import com.tiendis.tiendis.entity.Categoria;
+import com.tiendis.tiendis.entity.SubCategoria;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -16,9 +19,14 @@ import java.util.List;
 public class TiendisApplication implements CommandLineRunner {
 
 	private CategoriaRepository categoriaRepository;
+	private SubCategoriaRepository subCategoriaRepository;
+	private ProductoRepository productoRepository;
 
-	public TiendisApplication(CategoriaRepository categoriaRepository) {
+
+	public TiendisApplication(CategoriaRepository categoriaRepository, SubCategoriaRepository subCategoriaRepository) {
 		this.categoriaRepository = categoriaRepository;
+		this.subCategoriaRepository = subCategoriaRepository;
+
 	}
 
 	private final Log LOGGER = LogFactory.getLog(TiendisApplication.class);
@@ -35,6 +43,12 @@ public class TiendisApplication implements CommandLineRunner {
 		//System.out.print("listando articuos antes de guardar");
 		//list.stream().forEach(categoriaRepository::save);
 
+		System.out.print("listando articuos antes de guardar");
+
+		SubCategoria grafito = new SubCategoria("grafito", categoriaRepository.getById(1l), "Lapices corrientes");
+		SubCategoria deDibujo = new SubCategoria("de Dibujo", categoriaRepository.getById(1l), "Lapices de dibujo");
+		List<SubCategoria> listSC = Arrays.asList(grafito,deDibujo);
+		listSC.stream().forEach(subCategoriaRepository::save);
 
 
 	}
