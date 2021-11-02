@@ -28,12 +28,12 @@ public class TiendisApplication implements CommandLineRunner {
 	}
 
 	private void saveCategoryInDataBase(){
-		Categoria lapices = new Categoria("lapices", "Lapices varios");
-		Categoria lapiceros = new Categoria("lapiceros", "lapiceros");
-		Categoria cuadernos = new Categoria("cuadernos", "cuadernos grapado, argollados, cocidos");
-		List<Categoria> list = Arrays.asList(lapices, lapiceros, cuadernos);
-		System.out.print("listando articuos antes de guardar");
-		list.stream().forEach(categoriaRepository::save);
+		//Categoria lapices = new Categoria("lapices", "Lapices varios");
+		//Categoria lapiceros = new Categoria("lapiceros", "lapiceros");
+		//Categoria cuadernos = new Categoria("cuadernos", "cuadernos grapado, argollados, cocidos");
+		//List<Categoria> list = Arrays.asList(lapices, lapiceros, cuadernos);
+		//System.out.print("listando articuos antes de guardar");
+		//list.stream().forEach(categoriaRepository::save);
 
 
 
