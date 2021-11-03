@@ -36,17 +36,17 @@ public class TiendisApplication implements CommandLineRunner {
 	}
 
 	private void saveCategoryInDataBase(){
-		//Categoria lapices = new Categoria("lapices", "Lapices varios");
-		//Categoria lapiceros = new Categoria("lapiceros", "lapiceros");
-		//Categoria cuadernos = new Categoria("cuadernos", "cuadernos grapado, argollados, cocidos");
-		//List<Categoria> list = Arrays.asList(lapices, lapiceros, cuadernos);
-		//System.out.print("listando articuos antes de guardar");
-		//list.stream().forEach(categoriaRepository::save);
+		Categoria lapices = new Categoria("lapices", "Lapices varios");
+		Categoria lapiceros = new Categoria("lapiceros", "lapiceros");
+		Categoria cuadernos = new Categoria("cuadernos", "cuadernos grapado, argollados, cocidos");
+		List<Categoria> list = Arrays.asList(lapices, lapiceros, cuadernos);
+		System.out.print("listando articuos antes de guardar");
+		list.stream().forEach(categoriaRepository::save);
 
 		System.out.print("listando articuos antes de guardar");
 
-		SubCategoria grafito = new SubCategoria("grafito", categoriaRepository.getById(1l), "Lapices corrientes");
-		SubCategoria deDibujo = new SubCategoria("de Dibujo", categoriaRepository.getById(1l), "Lapices de dibujo");
+		SubCategoria grafito = new SubCategoria("grafito", categoriaRepository.getById(3l), "Lapices corrientes");
+		SubCategoria deDibujo = new SubCategoria("de Dibujo", categoriaRepository.getById(3l), "Lapices de dibujo");
 		List<SubCategoria> listSC = Arrays.asList(grafito,deDibujo);
 		listSC.stream().forEach(subCategoriaRepository::save);
 
