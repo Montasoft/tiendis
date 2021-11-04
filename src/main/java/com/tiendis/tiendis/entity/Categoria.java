@@ -14,7 +14,7 @@ import java.util.List;
 @ToString @EqualsAndHashCode
 public class Categoria {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter @Column(name = "IdCat", nullable = false, unique = true )
     private long id;
 

@@ -14,7 +14,7 @@ import java.util.List;
 public class SubCategoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdSubCat", nullable = false, unique = true )
     private long id;
 
