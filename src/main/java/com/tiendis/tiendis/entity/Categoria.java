@@ -15,7 +15,6 @@ import java.util.List;
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     @Getter @Setter @Column(name = "IdCat", nullable = false, unique = true )
     private long id;
 

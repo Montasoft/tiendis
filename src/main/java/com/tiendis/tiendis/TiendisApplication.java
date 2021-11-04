@@ -26,7 +26,6 @@ public class TiendisApplication implements CommandLineRunner {
 	public TiendisApplication(CategoriaRepository categoriaRepository, SubCategoriaRepository subCategoriaRepository) {
 		this.categoriaRepository = categoriaRepository;
 		this.subCategoriaRepository = subCategoriaRepository;
-
 	}
 
 	private final Log LOGGER = LogFactory.getLog(TiendisApplication.class);
