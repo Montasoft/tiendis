@@ -16,9 +16,10 @@ import java.util.List;
 
 
 @SpringBootApplication
-public class TiendisApplication implements CommandLineRunner {
+public class TiendisApplication {
+	//public class TiendisApplication implements CommandLineRunner {
 
-	private CategoriaRepository categoriaRepository;
+/*	private CategoriaRepository categoriaRepository;
 	private SubCategoriaRepository subCategoriaRepository;
 	private ProductoRepository productoRepository;
 
@@ -29,11 +30,11 @@ public class TiendisApplication implements CommandLineRunner {
 	}
 
 	private final Log LOGGER = LogFactory.getLog(TiendisApplication.class);
-
+*/
 	public static void main(String[] args) {
 		SpringApplication.run(TiendisApplication.class, args);
 	}
-
+/*
 	private void saveCategoryInDataBase(){
 		Categoria lapices = new Categoria("lapices", "Lapices varios");
 		Categoria lapiceros = new Categoria("lapiceros", "lapiceros");
@@ -60,5 +61,5 @@ public class TiendisApplication implements CommandLineRunner {
 			LOGGER.error("Esto es un error" + e.getMessage());
 		}
 	}
-
+*/
 }
