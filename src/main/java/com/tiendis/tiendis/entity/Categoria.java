@@ -1,9 +1,5 @@
 package com.tiendis.tiendis.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,21 +7,21 @@ import java.util.List;
 
 @Entity
 @Table(name = "categori4", schema= "public")
-@ToString @EqualsAndHashCode
 public class Categoria {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter @Setter @Column(name = "IdCat", nullable = false, unique = true )
+    @GeneratedValue(strategy = GenerationType.AUTO) //En postgreSQL no corria con IDENTITY.
+    @Column(name = "IdCat", nullable = false, unique = true )
     private long id;
 
-    @Getter @Setter @Column(name = "nombre", length = 150)
+    @Column(name = "nombre", length = 150)
     private String nombre;
 
-    @Getter @Setter @Column(name = "descripcion", length = 250)
+    @Column(name = "descripcion", length = 250)
     private String descripcion;
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference
+    //@JsonManagedReference
     private List<Producto> Productos = new ArrayList<>();
 
     public Categoria() {
@@ -36,7 +32,7 @@ public class Categoria {
         this.descripcion = descripcion;
     }
 
-/*    public long getId() {
+    public long getId() {
         return id;
     }
 
@@ -77,6 +73,4 @@ public class Categoria {
                 ", Productos=" + Productos +
                 '}';
     }
-    */
-
 }
