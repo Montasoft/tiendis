@@ -31,7 +31,7 @@ public class SubCategoria {
 
 
     @OneToMany(mappedBy = "subCategoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonManagedReference
+   // @JsonManagedReference
     private List<Producto> Productos = new ArrayList<>();
 
 

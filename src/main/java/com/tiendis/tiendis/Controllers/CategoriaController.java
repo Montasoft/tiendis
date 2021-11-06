@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/")
+@RequestMapping(value = "/api/cat/")
 public class CategoriaController {
 
     @Autowired
@@ -26,6 +26,10 @@ public class CategoriaController {
     public ResponseEntity<Categoria> save(@RequestBody Categoria categoria){
         Categoria obj = categoriaService.save(categoria);
         return new ResponseEntity<Categoria>(obj, HttpStatus.OK);
+    }
+    @GetMapping(value = "/find/{id}")
+    public Categoria find(@PathVariable Long id) {
+        return categoriaService.get(id);
     }
 
     @PostMapping(value= "/delete/{id}")
