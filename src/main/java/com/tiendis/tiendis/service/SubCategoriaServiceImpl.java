@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class SubCategoriaServiceImpl extends GenericServiceImpl<SubCategoria, Long> implements SubCategoriaService {
 
@@ -18,6 +16,6 @@ public class SubCategoriaServiceImpl extends GenericServiceImpl<SubCategoria, Lo
 
     @Override
     public CrudRepository<SubCategoria, Long> getDao() {
-        return null;
+        return subCategoriaDAO;
     }
 }

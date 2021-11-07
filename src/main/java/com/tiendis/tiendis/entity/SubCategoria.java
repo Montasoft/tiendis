@@ -3,37 +3,35 @@ package com.tiendis.tiendis.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Subcategori4", schema= "public")
-
+@Table(name = "subcategori4", schema= "public")
 public class SubCategoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "IdSubCat", nullable = false, unique = true )
     private long id;
 
     @Column(name = "nombre", length = 150)
     private String nombre;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+   // @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name= "categoriaIdCat")
     private Categoria categoria;
 
     @Column(name = "descripcion", length = 250)
     private String descripcion;
 
-
-
+    /*
     @OneToMany(mappedBy = "subCategoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
    // @JsonManagedReference
     private List<Producto> Productos = new ArrayList<>();
-
+*/
 
     // *******  CONSTRUCTORES ***************
     public SubCategoria() {
@@ -74,6 +72,15 @@ public class SubCategoria {
         this.descripcion = descripcion;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    /*
     public List<Producto> getProductos() {
         return Productos;
     }
@@ -81,14 +88,15 @@ public class SubCategoria {
     public void setProductos(List<Producto> productos) {
         Productos = productos;
     }
+*/
 
     @Override
     public String toString() {
         return "SubCategoria{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
+                ", categoria=" + categoria +
                 ", descripcion='" + descripcion + '\'' +
-                ", Productos=" + Productos +
                 '}';
     }
 }

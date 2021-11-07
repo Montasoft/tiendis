@@ -20,9 +20,11 @@ public class Categoria {
     @Column(name = "descripcion", length = 250)
     private String descripcion;
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+    //@OneToMany(mappedBy = "categoria")
+    //@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     //@JsonManagedReference
-    private List<Producto> Productos = new ArrayList<>();
+    //private List<Producto> Productos = new ArrayList<>();
 
     public Categoria() {
     }
@@ -55,7 +57,7 @@ public class Categoria {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
+/*
     public List<Producto> getProductos() {
         return Productos;
     }
@@ -63,14 +65,14 @@ public class Categoria {
     public void setProductos(List<Producto> productos) {
         Productos = productos;
     }
-
+*/
     @Override
     public String toString() {
         return "Categoria{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", Productos=" + Productos +
+               // ", Productos=" + Productos +
                 '}';
     }
 }
