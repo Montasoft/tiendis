@@ -1,2 +1,7 @@
 @JsonIgnore
 
+@ManytoOne
+@OnetoMany
+
+Autonumero por cada tabla, ya que me incrementa sin importar la tabla.
+

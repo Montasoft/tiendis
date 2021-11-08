@@ -1,9 +1,6 @@
 package com.tiendis.tiendis.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "categori4", schema= "public")

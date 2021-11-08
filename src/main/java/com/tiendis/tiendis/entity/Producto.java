@@ -1,23 +1,25 @@
 package com.tiendis.tiendis.entity;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product0")
+@Table(name = "product0", schema = "public")
 public class Producto {
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.AUTO)
         @Column(name = "IdProduct0", nullable = false, unique = true)
     private Long id;
 
         @Column(name = "nombre", length = 150)
     private String nombre;
 
-        @ManyToOne
+        @ManyToOne(fetch = FetchType.EAGER)
+        @JoinColumn(name = "categoriaId")
     private Categoria categoria;
 
-        @Column (name = "subCategoria")
-    private int subCategoria;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "subcategoriaId")
+    private SubCategoria subCategoria;
+
     private double Existencias;
     private int stockMin;
     private int canEmp;
@@ -32,11 +34,11 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(String nombre, Categoria categoria, int subCategoria, double existencias, int stockMin, int canEmp, int estado, double costo, double precio1, double precio2, String descripcion, int proveedor) {
+    public Producto(String nombre, Categoria categoria, SubCategoria subCategoria, double existencias, int stockMin, int canEmp, int estado, double costo, double precio1, double precio2, String descripcion, int proveedor) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.subCategoria = subCategoria;
-        Existencias = existencias;
+        this.Existencias = existencias;
         this.stockMin = stockMin;
         this.canEmp = canEmp;
         this.estado = estado;
@@ -71,11 +73,11 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public int getSubCategoria() {
+    public SubCategoria getSubCategoria() {
         return subCategoria;
     }
 
-    public void setSubCategoria(int subCategoria) {
+    public void setSubCategoria(SubCategoria subCategoria) {
         this.subCategoria = subCategoria;
     }
 
