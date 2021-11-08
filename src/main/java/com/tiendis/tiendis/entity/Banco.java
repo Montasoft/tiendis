@@ -1,7 +1,7 @@
 package com.tiendis.tiendis.entity;
 
-
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Banc0", schema= "public")
@@ -15,6 +15,9 @@ public class Banco {
     @Column(name = "nombre", length = 150)
     private String nombre;
 
+    @OneToMany(mappedBy = "banco")
+    //@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    Set<CuentaBancaria> cuentaBancariaset;
 
     public Banco() {
     }

@@ -1,5 +1,7 @@
 package com.tiendis.tiendis.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,14 +13,17 @@ public class CuentaBancaria {
     @Column(name = "idCuent4", nullable = false, unique = true)
     private long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name= "proveedor")
     private Proveedor proveedor;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="TipoCuent4")
     private TipoCuenta tipoCuenta;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name= "banc0")
     private Banco banco;
