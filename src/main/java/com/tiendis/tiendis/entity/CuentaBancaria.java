@@ -13,18 +13,18 @@ public class CuentaBancaria {
     @Column(name = "idCuent4", nullable = false, unique = true)
     private long id;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    //@JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name= "proveedor")
     private Proveedor proveedor;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    //@JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="TipoCuent4")
     private TipoCuenta tipoCuenta;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    //@JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name= "banc0")
     private Banco banco;
 
@@ -50,6 +50,10 @@ public class CuentaBancaria {
         return proveedor;
     }
 
+  /*  public long getProveedorId() {
+        return proveedor.getId();
+    }*/
+
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
@@ -66,6 +70,10 @@ public class CuentaBancaria {
         return tipoCuenta;
     }
 
+    /*public Long getTipoCuentaId() {
+        return tipoCuenta.getId();
+    }*/
+
     public void setTipoCuenta(TipoCuenta tipoCuenta) {
         this.tipoCuenta = tipoCuenta;
     }
@@ -73,6 +81,9 @@ public class CuentaBancaria {
     public Banco getBanco() {
         return banco;
     }
+  /*  public Long getBancoId() {
+        return banco.getId();
+    }*/
 
     public void setBanco(Banco banco) {
         this.banco = banco;
