@@ -3,7 +3,7 @@ package com.tiendis.tiendis.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name =  "prevent4", schema = "public")
+@Table(name =  "carritoDetalle", schema = "public")
 public class CarritoDetalle {
 
     @Id
@@ -14,7 +14,8 @@ public class CarritoDetalle {
     @Column(name = "IdCarrito")
     private long idCarrito;
 
-    @Column(name = "producto", length = 100)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "producto")
     private Producto producto;
 
     @Column(name= "cantidad")

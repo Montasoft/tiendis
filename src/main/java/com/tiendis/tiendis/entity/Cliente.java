@@ -36,7 +36,8 @@ public class Cliente {
     @Column (name= "ubicaciónGPS")
     private String ubicacionGPS;
 
-    @Column (name= "tipoCliente")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name= "tipoCliente")
     private TipoCliente tipoCliente;
 
     @Column (name= "telefono")
@@ -45,7 +46,8 @@ public class Cliente {
     @Column (name= "whatsApp")
     private String whatsApp;
 
-    @Column (name= "tipoComercio")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name= "tipoComercio")
     private TipoComercio tipoComercio;
 
     @Column (name= "nomComercio", length = 100)

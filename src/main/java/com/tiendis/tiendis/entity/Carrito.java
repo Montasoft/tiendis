@@ -5,7 +5,7 @@ import java.sql.ClientInfoStatus;
 import java.util.Date;
 
 @Entity
-@Table(name =  "prevent4", schema = "public")
+@Table(name =  "carrit0", schema = "public")
 public class Carrito {
 
     @Id
