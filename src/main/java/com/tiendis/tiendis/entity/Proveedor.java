@@ -11,7 +11,7 @@ import java.util.List;
 public class Proveedor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //En postgreSQL no corria con IDENTITY.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //En postgreSQL no corria con IDENTITY.
     @Column(name = "IdProveed0r", columnDefinition = "serial",  nullable = false, unique = true )
     private long id;
 

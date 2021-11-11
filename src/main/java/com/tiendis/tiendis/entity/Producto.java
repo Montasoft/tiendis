@@ -5,8 +5,8 @@ import javax.persistence.*;
 @Table(name = "product0", schema = "public")
 public class Producto {
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        @Column(name = "IdProduct0", nullable = false, unique = true)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "IdProduct0", columnDefinition = "serial", nullable = false, unique = true)
     private Long id;
 
         @Column(name = "nombre", length = 150)

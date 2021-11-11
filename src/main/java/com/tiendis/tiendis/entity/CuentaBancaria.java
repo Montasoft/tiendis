@@ -9,8 +9,8 @@ import javax.persistence.*;
 public class CuentaBancaria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idCuent4", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idCuent4", columnDefinition = "serial", nullable = false, unique = true)
     private long id;
 
     //@JsonIgnore

@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class TipoDocum {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "IdTipoDoc", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IdTipoDoc", columnDefinition = "serial", nullable = false, unique = true)
     private long id;
 
     @Column(name = "nombre", length = 50)

@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class Categoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //En postgreSQL no corria con IDENTITY.
-    @Column(name = "IdCat", nullable = false, unique = true )
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //En postgreSQL no corria con IDENTITY.
+    @Column(name = "IdCat", columnDefinition = "serial", nullable = false, unique = true )
     private long id;
 
     @Column(name = "nombre", length = 150)

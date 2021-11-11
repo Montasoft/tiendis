@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class TipoComercio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "IdTipoComercio", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IdTipoComercio", columnDefinition = "serial", nullable = false, unique = true)
     private long id;
 
     @Column(name = "nombre", length = 50)

@@ -9,8 +9,8 @@ import java.util.Date;
 public class Carrito {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "IdCarrito", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IdCarrito", columnDefinition = "serial", nullable = false, unique = true)
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

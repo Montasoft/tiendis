@@ -8,8 +8,8 @@ import java.util.Set;
 public class Banco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //En postgreSQL no corria con IDENTITY.
-    @Column(name = "IdBanco", nullable = false, unique = true )
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //En postgreSQL no corria con IDENTITY.
+    @Column(name = "IdBanco", columnDefinition = "serial", nullable = false, unique = true )
     private long id;
 
     @Column(name = "nombre", length = 150)
