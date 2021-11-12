@@ -23,6 +23,7 @@ public class Categoria {
     //@JsonManagedReference
     //private List<Producto> Productos = new ArrayList<>();
 
+    // *************** CONSTRUCTORES **********************
     public Categoria() {
     }
 
@@ -30,6 +31,8 @@ public class Categoria {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
+
+    // ************** GETTER AND SETTER *******************
 
     public long getId() {
         return id;
@@ -63,6 +66,9 @@ public class Categoria {
         Productos = productos;
     }
 */
+
+    // ************ ToString ***************************
+
     @Override
     public String toString() {
         return "Categoria{" +

@@ -21,28 +21,28 @@ public class Proveedor {
     @Column(name = "N1t", length = 20)
     private String Nit;
 
-    @Column(name = "Ciud4d", length = 20)
+    @Column(name = "Ciud4d", length = 50)
     private String ciudad;
 
-    @Column(name = "direcci0n", length = 20)
+    @Column(name = "direcci0n", length = 50)
     private String direccion;
 
-    @Column(name = "telefon0", length = 20)
+    @Column(name = "telefon0", length = 10)
     private String telefono;
 
-    @Column(name = "ema1l", length = 20)
+    @Column(name = "ema1l", length = 50)
     private String email;
 
-    @Column(name = "nombreContact0", length = 20)
+    @Column(name = "nombreContact0", length = 50)
     private String nombreContacto;
 
-    @Column(name = "CargoContact0", length = 20)
+    @Column(name = "CargoContact0", length = 50)
     private String cargocontacto;
 
-    @Column(name = "telContact0", length = 20)
+    @Column(name = "telContact0", length = 10)
     private String telContacto;
 
-    @Column(name = "emailContact0", length = 20)
+    @Column(name = "emailContact0", length = 50)
     private String emailContacto;
 
    /*
@@ -73,7 +73,7 @@ public class Proveedor {
         this.emailContacto = emailContacto;
     }
 
-    // ***************** GETTER AND SETTER *******************
+    // ***************** GETTERS AND SETTERS *******************
 
 
     public long getId() {
@@ -164,8 +164,8 @@ public class Proveedor {
         this.emailContacto = emailContacto;
     }
 
-    // **************** ToString ******************************
 
+    // **************** ToString ******************************
 
     @Override
     public String toString() {

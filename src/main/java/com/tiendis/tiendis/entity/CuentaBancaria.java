@@ -10,7 +10,7 @@ public class CuentaBancaria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idCuent4", columnDefinition = "serial", nullable = false, unique = true)
+    @Column(name = "idCuenta", columnDefinition = "serial", nullable = false, unique = true)
     private long id;
 
     //@JsonIgnore
@@ -20,21 +20,21 @@ public class CuentaBancaria {
 
     //@JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="TipoCuent4")
+    @JoinColumn(name="TipoCuenta")
     private TipoCuenta tipoCuenta;
 
     //@JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name= "banc0")
+    @JoinColumn(name= "banco")
     private Banco banco;
 
     @Column(name= "NumCuenta")
     private int numCuenta;
 
-    @Column(name= "Not4")
+    @Column(name= "Nota")
     private String nota;
 
-
+    // ************ CONSTRUCTORES ****************************
     public CuentaBancaria() {
     }
 

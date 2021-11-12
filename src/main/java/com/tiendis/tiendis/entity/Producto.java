@@ -4,32 +4,49 @@ import javax.persistence.*;
 @Entity
 @Table(name = "product0", schema = "public")
 public class Producto {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "IdProduct0", columnDefinition = "serial", nullable = false, unique = true)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IdProduct0", columnDefinition = "serial", nullable = false, unique = true)
     private Long id;
 
-        @Column(name = "nombre", length = 150)
+    @Column(name = "nombre", length = 150)
     private String nombre;
 
-        @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name = "categoriaId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoriaId")
     private Categoria categoria;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subcategoriaId")
     private SubCategoria subCategoria;
 
+    @Column(name = "Existencias")
     private double Existencias;
+
+    @Column(name = "stockMin")
     private int stockMin;
+
+    @Column(name = "canEmp")
     private int canEmp;
+
+    @Column(name = "estado")
     private int estado;
+
+    @Column(name = "costo")
     private double costo;
+
+    @Column(name = "precio1")
     private double precio1;
+
+    @Column(name = "precio2")
     private double precio2;
-        @Column(name = "descripcion", length = 256)
+
+    @Column(name = "descripcion", length = 256)
     private String descripcion;
     private int proveedor;
+
+    // *********** CONSTRUCTORES *****************
 
     public Producto() {
     }
@@ -48,6 +65,8 @@ public class Producto {
         this.descripcion = descripcion;
         this.proveedor = proveedor;
     }
+
+    // *************** GETTERS AND SETTERS ***************
 
     public Long getId() {
         return id;
@@ -152,6 +171,9 @@ public class Producto {
     public void setProveedor(int proveedor) {
         this.proveedor = proveedor;
     }
+
+
+    // ************* ToString ******************
 
     @Override
     public String toString() {

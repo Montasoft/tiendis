@@ -90,6 +90,8 @@ public class SubCategoria {
     }
 */
 
+    // ************* ToString *********************
+
     @Override
     public String toString() {
         return "SubCategoria{" +

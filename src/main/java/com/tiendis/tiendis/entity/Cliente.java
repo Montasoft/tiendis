@@ -14,43 +14,43 @@ public class Cliente {
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "birthday")
+    @Column(name = "birthday", length = 10)
     private String birthday;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn (name= "tipoDoc")
     private TipoDocum tipoDocum;
 
-    @Column (name= "numDoc")
+    @Column (name= "numDoc", length = 20)
     private String numDoc;
 
     @Column(name = "ciudad")
     private String ciudad;
 
-    @Column(name= "direccion")
+    @Column(name= "direccion", length = 250)
     private String direccion;
 
-    @Column (name= "barrio")
+    @Column (name= "barrio", length = 150)
     private String barrio;
 
-    @Column (name= "ubicaciónGPS")
+    @Column (name= "ubicaciónGPS", length = 100)
     private String ubicacionGPS;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn (name= "tipoCliente")
     private TipoCliente tipoCliente;
 
-    @Column (name= "telefono")
+    @Column (name= "telefono", length = 10)
     private String telefono;
 
-    @Column (name= "whatsApp")
+    @Column (name= "whatsApp", length = 10)
     private String whatsApp;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn (name= "tipoComercio")
     private TipoComercio tipoComercio;
 
-    @Column (name= "nomComercio", length = 100)
+    @Column (name= "nomComercio", length = 150)
     private String nomComercio;
 
     @Column (name= "dirComercio", length = 100)
