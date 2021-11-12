@@ -37,7 +37,7 @@ public class Proveedor {
     private String nombreContacto;
 
     @Column(name = "CargoContact0", length = 50)
-    private String cargocontacto;
+    private String cargoContacto;
 
     @Column(name = "telContact0", length = 10)
     private String telContacto;
@@ -68,7 +68,7 @@ public class Proveedor {
         this.telefono = telefono;
         this.email = email;
         this.nombreContacto = nombreContacto;
-        this.cargocontacto = cargocontacto;
+        this.cargoContacto = cargocontacto;
         this.telContacto = telContacto;
         this.emailContacto = emailContacto;
     }
@@ -140,12 +140,12 @@ public class Proveedor {
         this.nombreContacto = nombreContacto;
     }
 
-    public String getCargocontacto() {
-        return cargocontacto;
+    public String getCargoContacto() {
+        return cargoContacto;
     }
 
-    public void setCargocontacto(String cargocontacto) {
-        this.cargocontacto = cargocontacto;
+    public void setCargoContacto(String cargocontacto) {
+        this.cargoContacto = cargocontacto;
     }
 
     public String getTelContacto() {
@@ -178,7 +178,7 @@ public class Proveedor {
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +
                 ", nombreContacto='" + nombreContacto + '\'' +
-                ", cargocontacto='" + cargocontacto + '\'' +
+                ", cargoContacto='" + cargoContacto + '\'' +
                 ", telContacto='" + telContacto + '\'' +
                 ", emailContacto='" + emailContacto + '\'' +
                 '}';
