@@ -9,10 +9,11 @@ public class CarritoDetalle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdCarritoDetalle", columnDefinition = "serial", nullable = false, unique = true)
-    private long id;
+    private int id;
 
-    @Column(name = "IdCarrito")
-    private long idCarrito;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "carrito")
+    private Carrito carrito;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "producto")
@@ -36,9 +37,9 @@ public class CarritoDetalle {
     public CarritoDetalle() {
     }
 
-    public CarritoDetalle(long id, long idCarrito, Producto producto, int cantidad, long valorUnita, long descuento, String observacion) {
+    public CarritoDetalle(int id, Carrito carrito, Producto producto, int cantidad, long valorUnita, long descuento, String observacion) {
         this.id = id;
-        this.idCarrito = idCarrito;
+        this.carrito = carrito;
         this.producto = producto;
         this.cantidad = cantidad;
         this.valorUnita = valorUnita;
@@ -49,20 +50,20 @@ public class CarritoDetalle {
     // ************* GETTER AND SETTER ************************
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public long getIdCarrito() {
-        return idCarrito;
+    public Carrito getCarrito() {
+        return carrito;
     }
 
-    public void setIdCarrito(long idCarrito) {
-        this.idCarrito = idCarrito;
+    public void setIdCarrito(Carrito carrito) {
+        this.carrito = carrito;
     }
 
     public Producto getProducto() {
@@ -112,7 +113,7 @@ public class CarritoDetalle {
     public String toString() {
         return "CarritoDetalle{" +
                 "id=" + id +
-                ", idCarrito=" + idCarrito +
+                ", idCarrito=" + carrito +
                 ", producto=" + producto +
                 ", cantidad=" + cantidad +
                 ", valorUnita=" + valorUnita +

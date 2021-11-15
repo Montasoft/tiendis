@@ -9,7 +9,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdCliente", columnDefinition = "serial", nullable = false, unique = true)
-    private long id;
+    private int id;
 
     @Column(name = "nombre")
     private String nombre;
@@ -24,8 +24,9 @@ public class Cliente {
     @Column (name= "numDoc", length = 20)
     private String numDoc;
 
-    @Column(name = "ciudad")
-    private String ciudad;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ciudad")
+    private Ciudad ciudad;
 
     @Column(name= "direccion", length = 250)
     private String direccion;
@@ -33,7 +34,7 @@ public class Cliente {
     @Column (name= "barrio", length = 150)
     private String barrio;
 
-    @Column (name= "ubicaciónGPS", length = 100)
+    @Column (name= "ubicacionGPS", length = 100)
     private String ubicacionGPS;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -63,7 +64,7 @@ public class Cliente {
     }
 
     // CONSTRUCTOR SIN DATOS DEL COMERCIO //
-    public Cliente(long id, String nombre, String birthday, TipoDocum tipoDocum, String numDoc, String ciudad, String direccion, String barrio, String ubicacionGPS, TipoCliente tipoCliente, String telefono, String whatsApp) {
+    public Cliente(int id, String nombre, String birthday, TipoDocum tipoDocum, String numDoc, Ciudad ciudad, String direccion, String barrio, String ubicacionGPS, TipoCliente tipoCliente, String telefono, String whatsApp) {
         this.id = id;
         this.nombre = nombre;
         this.birthday = birthday;
@@ -79,7 +80,7 @@ public class Cliente {
     }
 
     // CONSTRUCTOR CON DATOS DEL COMERCIO //
-    public Cliente(long id, String nombre, String birthday, TipoDocum tipoDocum, String numDoc, String ciudad, String direccion, String barrio, String ubicacionGPS, TipoCliente tipoCliente, String telefono, String whatsApp, TipoComercio tipoComercio, String nomComercio, String dirComercio) {
+    public Cliente(int id, String nombre, String birthday, TipoDocum tipoDocum, String numDoc, Ciudad ciudad, String direccion, String barrio, String ubicacionGPS, TipoCliente tipoCliente, String telefono, String whatsApp, TipoComercio tipoComercio, String nomComercio, String dirComercio) {
         this.id = id;
         this.nombre = nombre;
         this.birthday = birthday;
@@ -99,11 +100,11 @@ public class Cliente {
 
     // *************   GETTER AND SETTER **************
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -139,11 +140,11 @@ public class Cliente {
         this.numDoc = numDoc;
     }
 
-    public String getCiudad() {
+    public Ciudad getCiudad() {
         return ciudad;
     }
 
-    public void setCiudad(String ciudad) {
+    public void setCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
 

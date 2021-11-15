@@ -1,5 +1,7 @@
 package com.tiendis.tiendis.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.sql.ClientInfoStatus;
 import java.util.Date;
@@ -11,14 +13,16 @@ public class Carrito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdCarrito", columnDefinition = "serial", nullable = false, unique = true)
-    private long id;
+    private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente")
     private Cliente cliente;
 
     @Column(name = "fechaCarrito", length = 19)
-    private String fechaPrev;
+  //  @Temporal(TemporalType.DATE)
+  //  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private String fechaCarrito;
 
     @Column(name="valor")
     private long valor;
@@ -28,7 +32,7 @@ public class Carrito {
     private FormaPago formapago;
 
     @Column(name= "Nota", length = 256)
-    private long nota;
+    private String nota;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name= "estado")
@@ -40,10 +44,10 @@ public class Carrito {
     public Carrito() {
     }
 
-    public Carrito(long id, Cliente cliente, String fechaPrev, long valor, FormaPago formapago, long nota, EstadoCarrito estadoCarrito) {
+    public Carrito(int id, Cliente cliente, String fechaCarrito, long valor, FormaPago formapago, String nota, EstadoCarrito estadoCarrito) {
         this.id = id;
         this.cliente = cliente;
-        this.fechaPrev = fechaPrev;
+        this.fechaCarrito = fechaCarrito;
         this.valor = valor;
         this.formapago = formapago;
         this.nota = nota;
@@ -53,11 +57,11 @@ public class Carrito {
     // ************ GETTER AND SETTER *******************
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -69,12 +73,12 @@ public class Carrito {
         this.cliente = cliente;
     }
 
-    public String getFechaPrev() {
-        return fechaPrev;
+    public String getFechaCarrito() {
+        return fechaCarrito;
     }
 
-    public void setFechaPrev(String fechaPrev) {
-        this.fechaPrev = fechaPrev;
+    public void setFechaCarrito(String fechaCarrito) {
+        this.fechaCarrito = fechaCarrito;
     }
 
     public long getValor() {
@@ -93,11 +97,11 @@ public class Carrito {
         this.formapago = formapago;
     }
 
-    public long getNota() {
+    public String getNota() {
         return nota;
     }
 
-    public void setNota(long nota) {
+    public void setNota(String nota) {
         this.nota = nota;
     }
 
@@ -117,7 +121,7 @@ public class Carrito {
         return "Carrito{" +
                 "id=" + id +
                 ", cliente=" + cliente +
-                ", fechaPrev='" + fechaPrev + '\'' +
+                ", fechaCarrito='" + fechaCarrito + '\'' +
                 ", valor=" + valor +
                 ", formapago=" + formapago +
                 ", nota=" + nota +

@@ -11,7 +11,7 @@ public class CuentaBancaria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idCuenta", columnDefinition = "serial", nullable = false, unique = true)
-    private long id;
+    private int id;
 
     //@JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
@@ -38,7 +38,7 @@ public class CuentaBancaria {
     public CuentaBancaria() {
     }
 
-    public CuentaBancaria(long id, TipoCuenta tipoCuenta, Banco banco, int numCuenta, String nota) {
+    public CuentaBancaria(int id, TipoCuenta tipoCuenta, Banco banco, int numCuenta, String nota) {
         this.id = id;
         this.tipoCuenta = tipoCuenta;
         this.banco = banco;
@@ -58,11 +58,11 @@ public class CuentaBancaria {
         this.proveedor = proveedor;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

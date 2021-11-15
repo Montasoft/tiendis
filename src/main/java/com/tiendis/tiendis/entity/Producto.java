@@ -8,7 +8,7 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdProduct0", columnDefinition = "serial", nullable = false, unique = true)
-    private Long id;
+    private int id;
 
     @Column(name = "nombre", length = 150)
     private String nombre;
@@ -44,14 +44,17 @@ public class Producto {
 
     @Column(name = "descripcion", length = 256)
     private String descripcion;
-    private int proveedor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "proveedor")
+    private Proveedor proveedor;
 
     // *********** CONSTRUCTORES *****************
 
     public Producto() {
     }
 
-    public Producto(String nombre, Categoria categoria, SubCategoria subCategoria, double existencias, int stockMin, int canEmp, int estado, double costo, double precio1, double precio2, String descripcion, int proveedor) {
+    public Producto(String nombre, Categoria categoria, SubCategoria subCategoria, double existencias, int stockMin, int canEmp, int estado, double costo, double precio1, double precio2, String descripcion, Proveedor proveedor) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.subCategoria = subCategoria;
@@ -68,11 +71,11 @@ public class Producto {
 
     // *************** GETTERS AND SETTERS ***************
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -164,11 +167,11 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public int getProveedor() {
+    public Proveedor getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(int proveedor) {
+    public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
 

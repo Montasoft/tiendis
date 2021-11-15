@@ -10,7 +10,7 @@ public class Banco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //En postgreSQL no corria con IDENTITY.
     @Column(name = "IdBanco", columnDefinition = "serial", nullable = false, unique = true )
-    private long id;
+    private int id;
 
     @Column(name = "nombre", length = 150)
     private String nombre;
@@ -22,16 +22,16 @@ public class Banco {
     public Banco() {
     }
 
-    public Banco(long id, String nombre) {
+    public Banco(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

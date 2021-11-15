@@ -9,7 +9,7 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //En postgreSQL no corria con IDENTITY.
     @Column(name = "IdCat", columnDefinition = "serial", nullable = false, unique = true )
-    private long id;
+    private int id;
 
     @Column(name = "nombre", length = 150)
     private String nombre;
@@ -34,11 +34,11 @@ public class Categoria {
 
     // ************** GETTER AND SETTER *******************
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

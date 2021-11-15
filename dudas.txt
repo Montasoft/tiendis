@@ -8,3 +8,6 @@ Autonumero por cada tabla, ya que me incrementa sin importar la tabla.
 
 Devolver el valor de la llave foranea.
  me devuelve pidiendo el Long de Banco.GetId, pero al agregarun registro nuevo no funciona-
+
+
+LAZY O EAGER en los FetchType de los ManyToOne

@@ -1,19 +1,18 @@
 package com.tiendis.tiendis.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Table(name = "Proveed0r", schema= "public")
 public class Proveedor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //En postgreSQL no corria con IDENTITY.
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdProveed0r", columnDefinition = "serial",  nullable = false, unique = true )
-    private long id;
+    private int id;
 
     @Column(name = "nombr3", length = 150)
     private String nombre;
@@ -21,8 +20,10 @@ public class Proveedor {
     @Column(name = "N1t", length = 20)
     private String Nit;
 
-    @Column(name = "Ciud4d", length = 50)
-    private String ciudad;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Ciud4d")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Ciudad ciudad;
 
     @Column(name = "direcci0n", length = 50)
     private String direccion;
@@ -45,42 +46,33 @@ public class Proveedor {
     @Column(name = "emailContact0", length = 50)
     private String emailContacto;
 
-   /*
-    @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    //@Column(name = "cuentaBancaria")
-    @JsonManagedReference
-    private List<CuentaBancaria> cuentaBancaria = new ArrayList<>();
-    //    private CuentaBancaria cuentaBancaria ;
-   */
-
     //******************  CONSTRUCTORES ***********************
 
 
     public Proveedor() {
     }
 
-    public Proveedor(long id, String nombre, String nit, String ciudad, String direccion, String telefono, String email, String nombreContacto, String cargocontacto, String telContacto, String emailContacto) {
+    public Proveedor(int id, String nombre, String nit, Ciudad ciudad, String direccion, String telefono, String email, String nombreContacto, String cargoContacto, String telContacto, String emailContacto) {
         this.id = id;
         this.nombre = nombre;
-        this.Nit = nit;
+        Nit = nit;
         this.ciudad = ciudad;
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
         this.nombreContacto = nombreContacto;
-        this.cargoContacto = cargocontacto;
+        this.cargoContacto = cargoContacto;
         this.telContacto = telContacto;
         this.emailContacto = emailContacto;
     }
 
     // ***************** GETTERS AND SETTERS *******************
 
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -100,11 +92,11 @@ public class Proveedor {
         Nit = nit;
     }
 
-    public String getCiudad() {
+    public Ciudad getCiudad() {
         return ciudad;
     }
 
-    public void setCiudad(String ciudad) {
+    public void setCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
 
@@ -144,8 +136,8 @@ public class Proveedor {
         return cargoContacto;
     }
 
-    public void setCargoContacto(String cargocontacto) {
-        this.cargoContacto = cargocontacto;
+    public void setCargoContacto(String cargoContacto) {
+        this.cargoContacto = cargoContacto;
     }
 
     public String getTelContacto() {
@@ -167,13 +159,14 @@ public class Proveedor {
 
     // **************** ToString ******************************
 
+
     @Override
     public String toString() {
         return "Proveedor{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", Nit='" + Nit + '\'' +
-                ", ciudad='" + ciudad + '\'' +
+                ", ciudad=" + ciudad +
                 ", direccion='" + direccion + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +

@@ -9,7 +9,7 @@ public class TipoComercio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdTipoComercio", columnDefinition = "serial", nullable = false, unique = true)
-    private long id;
+    private int id;
 
     @Column(name = "nombre", length = 50)
     private String nombre;
@@ -19,18 +19,18 @@ public class TipoComercio {
 
     public TipoComercio() {
     }
-    public TipoComercio(long id, String nombre) {
+    public TipoComercio(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
     /* ********** GETTER AND SETTER ************* */
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
