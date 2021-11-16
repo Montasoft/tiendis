@@ -31,7 +31,7 @@ public class TipoComercioController {
         return tipoComercioService.get(id);
     }
 
-    @PostMapping(value= "/delete/{id}")
+    @DeleteMapping(value= "/delete/{id}")
     public ResponseEntity<TipoComercio> delete(@PathVariable Integer id) {
         TipoComercio tipoComercio = tipoComercioService.get((id));
         if (tipoComercio != null){

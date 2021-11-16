@@ -32,7 +32,7 @@ public class FormaPagoController {
         return formaPagoService.get(id);
     }
 
-    @PostMapping(value= "/delete/{id}")
+    @DeleteMapping(value= "/delete/{id}")
     public ResponseEntity<FormaPago> delete(@PathVariable Integer id) {
         FormaPago formaPago = formaPagoService.get((id));
         if (formaPago != null){

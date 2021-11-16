@@ -3,11 +3,13 @@
 @ManytoOne
 @OnetoMany
 
-Autonumero por cada tabla, ya que me incrementa sin importar la tabla.
+
+LAZY O EAGER en los FetchType de los ManyToOne
 
 
 Devolver el valor de la llave foranea.
- me devuelve pidiendo el Long de Banco.GetId, pero al agregarun registro nuevo no funciona-
+ me devuelve pidiendo el Integr de Banco.GetId, pero al agregar un registro nuevo no funciona-
 
 
-LAZY O EAGER en los FetchType de los ManyToOne
+conviene mejor marcar los registros como eliminados y quitarlos de la tabla?
+

@@ -33,7 +33,7 @@ public class TipoClienteController {
         return tipoClienteService.get(id);
     }
 
-    @PostMapping(value= "/delete/{id}")
+    @DeleteMapping(value= "/delete/{id}")
     public ResponseEntity<TipoCliente> delete(@PathVariable Integer id) {
         TipoCliente tipoCliente = tipoClienteService.get((id));
         if (tipoCliente != null){

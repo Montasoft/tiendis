@@ -31,7 +31,7 @@ public class SubCategoriaController {
         return subCategoriaService.get(id);
     }
 
-    @PostMapping(value= "/delete/{id}")
+    @DeleteMapping(value= "/delete/{id}")
     public ResponseEntity<SubCategoria> delete(@PathVariable Integer id) {
         SubCategoria subCategoria = subCategoriaService.get((id));
         if (subCategoria != null){

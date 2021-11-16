@@ -31,7 +31,7 @@ public class TipoDocumController {
         return tipoDocumService.get(id);
     }
 
-    @PostMapping(value= "/delete/{id}")
+    @DeleteMapping(value= "/delete/{id}")
     public ResponseEntity<TipoDocum> delete(@PathVariable Integer id) {
         TipoDocum tipoDocum = tipoDocumService.get((id));
         if (tipoDocum != null){
