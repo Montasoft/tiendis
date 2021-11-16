@@ -9,14 +9,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductoServiceImpl extends GenericServiceImpl<Producto, Long> implements ProductoService {
+public class ProductoServiceImpl extends GenericServiceImpl<Producto, Integer> implements ProductoService {
 
     @Autowired
     private ProductoDAO productoDAO;
 
 
     @Override
-    public CrudRepository<Producto, Long> getDao() {
+    public CrudRepository<Producto, Integer> getDao() {
         return productoDAO;
     }
 }

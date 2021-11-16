@@ -27,12 +27,12 @@ public class TipoCuentaController {
         return new ResponseEntity<TipoCuenta>(obj, HttpStatus.OK);
     }
     @GetMapping(value = "/find/{id}")
-    public TipoCuenta find(@PathVariable Long id) {
+    public TipoCuenta find(@PathVariable Integer id) {
         return tipoCuentaService.get(id);
     }
 
     @PostMapping(value= "/delete/{id}")
-    public ResponseEntity<TipoCuenta> delete(@PathVariable Long id) {
+    public ResponseEntity<TipoCuenta> delete(@PathVariable Integer id) {
         TipoCuenta tipoCuenta = tipoCuentaService.get((id));
         if (tipoCuenta != null){
             tipoCuentaService.delete(id);

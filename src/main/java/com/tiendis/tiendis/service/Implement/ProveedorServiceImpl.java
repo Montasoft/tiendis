@@ -9,13 +9,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProveedorServiceImpl extends GenericServiceImpl<Proveedor, Long> implements ProveedorService {
+public class ProveedorServiceImpl extends GenericServiceImpl<Proveedor, Integer> implements ProveedorService {
 
     @Autowired
     private ProveedorDAO proveedorDAO;
 
     @Override
-    public CrudRepository<Proveedor, Long> getDao() {
+    public CrudRepository<Proveedor, Integer> getDao() {
         return proveedorDAO;
     }
 }

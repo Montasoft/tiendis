@@ -28,12 +28,12 @@ public class CarritoDetalleController {
     }
 
     @GetMapping(value = "/find/{id}")
-    public CarritoDetalle find(@PathVariable Long id){
+    public CarritoDetalle find(@PathVariable Integer id){
         return carritoDetalleService.get(id);
     }
 
     @PostMapping(value = "/delete/{id}")
-    public ResponseEntity<CarritoDetalle> delete(@PathVariable Long id){
+    public ResponseEntity<CarritoDetalle> delete(@PathVariable Integer id){
         CarritoDetalle carritoDetalle = carritoDetalleService.get(id);
         if (carritoDetalle != null){
             carritoDetalleService.delete(id);

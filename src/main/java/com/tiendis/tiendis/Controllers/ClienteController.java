@@ -29,12 +29,12 @@ public class ClienteController {
     }
 
     @GetMapping(value = "/find/{id}")
-    public Cliente find(@PathVariable Long id){
+    public Cliente find(@PathVariable Integer id){
         return clienteService.get(id);
     }
 
     @PostMapping(value = "/delete/{id}")
-    public ResponseEntity<Cliente> delete(@PathVariable Long id){
+    public ResponseEntity<Cliente> delete(@PathVariable Integer id){
         Cliente cliente = clienteService.get(id);
         if (cliente != null){
             clienteService.delete(id);

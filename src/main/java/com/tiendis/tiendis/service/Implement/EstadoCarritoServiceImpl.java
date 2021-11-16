@@ -9,13 +9,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EstadoCarritoServiceImpl extends GenericServiceImpl<EstadoCarrito, Long> implements EstadoCarritoService {
+public class EstadoCarritoServiceImpl extends GenericServiceImpl<EstadoCarrito, Integer> implements EstadoCarritoService {
 
     @Autowired
     private EstadoCarritoDAO estadoCarritoDAO;
 
     @Override
-    public CrudRepository<EstadoCarrito, Long> getDao() {
+    public CrudRepository<EstadoCarrito, Integer> getDao() {
         return estadoCarritoDAO;
     }
 }

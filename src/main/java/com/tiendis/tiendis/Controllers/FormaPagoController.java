@@ -28,12 +28,12 @@ public class FormaPagoController {
         return new ResponseEntity<FormaPago>(obj, HttpStatus.OK);
     }
     @GetMapping(value = "/find/{id}")
-    public FormaPago find(@PathVariable Long id) {
+    public FormaPago find(@PathVariable Integer id) {
         return formaPagoService.get(id);
     }
 
     @PostMapping(value= "/delete/{id}")
-    public ResponseEntity<FormaPago> delete(@PathVariable Long id) {
+    public ResponseEntity<FormaPago> delete(@PathVariable Integer id) {
         FormaPago formaPago = formaPagoService.get((id));
         if (formaPago != null){
             formaPagoService.delete(id);

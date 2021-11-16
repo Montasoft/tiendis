@@ -12,13 +12,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FormaPagoServiceImpl extends GenericServiceImpl<FormaPago, Long> implements FormaPagoService {
+public class FormaPagoServiceImpl extends GenericServiceImpl<FormaPago, Integer> implements FormaPagoService {
 
     @Autowired
     private FormaPagoDAO formaPagoDAO;
 
     @Override
-    public CrudRepository<FormaPago, Long> getDao() {
+    public CrudRepository<FormaPago, Integer> getDao() {
         return formaPagoDAO;
     }
 }

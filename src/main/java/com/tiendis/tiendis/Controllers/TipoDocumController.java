@@ -27,12 +27,12 @@ public class TipoDocumController {
         return new ResponseEntity<TipoDocum>(obj, HttpStatus.OK);
     }
     @GetMapping(value = "/find/{id}")
-    public TipoDocum find(@PathVariable Long id) {
+    public TipoDocum find(@PathVariable Integer id) {
         return tipoDocumService.get(id);
     }
 
     @PostMapping(value= "/delete/{id}")
-    public ResponseEntity<TipoDocum> delete(@PathVariable Long id) {
+    public ResponseEntity<TipoDocum> delete(@PathVariable Integer id) {
         TipoDocum tipoDocum = tipoDocumService.get((id));
         if (tipoDocum != null){
             tipoDocumService.delete(id);

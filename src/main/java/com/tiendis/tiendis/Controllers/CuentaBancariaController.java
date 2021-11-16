@@ -28,12 +28,12 @@ public class CuentaBancariaController {
     }
 
     @GetMapping(value = "/find/{id}")
-    public CuentaBancaria find(@PathVariable Long id){
+    public CuentaBancaria find(@PathVariable Integer id){
         return cuentaBancariaService.get(id);
     }
 
-    @PostMapping(value = "/delete/{id}")
-    public ResponseEntity<CuentaBancaria> delete(@PathVariable Long id){
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<CuentaBancaria> delete(@PathVariable Integer id){
         CuentaBancaria cuentaBancaria = cuentaBancariaService.get(id);
         if (cuentaBancaria != null){
             cuentaBancariaService.delete(id);

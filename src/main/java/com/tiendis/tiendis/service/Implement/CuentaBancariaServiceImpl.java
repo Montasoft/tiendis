@@ -10,13 +10,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CuentaBancariaServiceImpl extends GenericServiceImpl<CuentaBancaria, Long> implements CuentaBancariaService {
+public class CuentaBancariaServiceImpl extends GenericServiceImpl<CuentaBancaria, Integer> implements CuentaBancariaService {
 
     @Autowired
     private CuentaBancariaDAO cuentaBancariaDAO;
 
     @Override
-    public CrudRepository<CuentaBancaria, Long> getDao(){
+    public CrudRepository<CuentaBancaria, Integer> getDao(){
         return cuentaBancariaDAO;
     }
 }

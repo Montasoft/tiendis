@@ -27,12 +27,12 @@ public class ProductoController {
         return new ResponseEntity<Producto>(obj, HttpStatus.OK);
     }
     @GetMapping(value = "/find/{id}")
-    public Producto find(@PathVariable Long id) {
+    public Producto find(@PathVariable Integer id) {
         return productoService.get(id);
     }
 
     @PostMapping(value= "/delete/{id}")
-    public ResponseEntity<Producto> delete(@PathVariable Long id) {
+    public ResponseEntity<Producto> delete(@PathVariable Integer id) {
         Producto producto = productoService.get((id));
         if (producto != null){
             productoService.delete(id);

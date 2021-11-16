@@ -12,13 +12,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CarritoServiceImpl extends GenericServiceImpl<Carrito, Long> implements CarritoService {
+public class CarritoServiceImpl extends GenericServiceImpl<Carrito, Integer> implements CarritoService {
 
     @Autowired
     private CarritoDao carritoDao;
 
     @Override
-    public CrudRepository<Carrito, Long> getDao() {
+    public CrudRepository<Carrito, Integer> getDao() {
         return carritoDao;
     }
 }

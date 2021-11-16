@@ -9,13 +9,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TipoDocumServiceImpl extends GenericServiceImpl<TipoDocum, Long> implements TipoDocumService {
+public class TipoDocumServiceImpl extends GenericServiceImpl<TipoDocum, Integer> implements TipoDocumService {
 
     @Autowired
     private TipoDocumDAO tipoDocumDAO;
 
     @Override
-    public CrudRepository<TipoDocum, Long> getDao() {
+    public CrudRepository<TipoDocum, Integer> getDao() {
         return tipoDocumDAO;
     }
 }

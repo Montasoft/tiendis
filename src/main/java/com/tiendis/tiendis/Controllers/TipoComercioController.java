@@ -27,12 +27,12 @@ public class TipoComercioController {
         return new ResponseEntity<TipoComercio>(obj, HttpStatus.OK);
     }
     @GetMapping(value = "/find/{id}")
-    public TipoComercio find(@PathVariable Long id) {
+    public TipoComercio find(@PathVariable Integer id) {
         return tipoComercioService.get(id);
     }
 
     @PostMapping(value= "/delete/{id}")
-    public ResponseEntity<TipoComercio> delete(@PathVariable Long id) {
+    public ResponseEntity<TipoComercio> delete(@PathVariable Integer id) {
         TipoComercio tipoComercio = tipoComercioService.get((id));
         if (tipoComercio != null){
             tipoComercioService.delete(id);

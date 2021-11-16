@@ -28,12 +28,12 @@ public class CategoriaController {
         return new ResponseEntity<Categoria>(obj, HttpStatus.OK);
     }
     @GetMapping(value = "/find/{id}")
-    public Categoria find(@PathVariable Long id) {
+    public Categoria find(@PathVariable Integer id) {
         return categoriaService.get(id);
     }
 
-    @PostMapping(value= "/delete/{id}")
-    public ResponseEntity<Categoria> delete(@PathVariable Long id) {
+    @DeleteMapping(value= "/delete/{id}")
+    public ResponseEntity<Categoria> delete(@PathVariable Integer id) {
         Categoria categoria = categoriaService.get((id));
         if (categoria != null){
             categoriaService.delete(id);

@@ -9,13 +9,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TipoCuentaServiceImpl extends GenericServiceImpl<TipoCuenta, Long> implements TipoCuentaService {
+public class TipoCuentaServiceImpl extends GenericServiceImpl<TipoCuenta, Integer> implements TipoCuentaService {
 
     @Autowired
     private TipoCuentaDAO tipoCuentaDAO;
 
     @Override
-    public CrudRepository<TipoCuenta, Long> getDao() {
+    public CrudRepository<TipoCuenta, Integer> getDao() {
         return tipoCuentaDAO;
     }
 }

@@ -29,12 +29,12 @@ public class ProveedorController {
         return new ResponseEntity<Proveedor>(obj, HttpStatus.OK);
     }
     @GetMapping(value = "/find/{id}")
-    public Proveedor find(@PathVariable Long id) {
+    public Proveedor find(@PathVariable Integer id) {
         return proveedorService.get(id);
     }
 
     @PostMapping(value= "/delete/{id}")
-    public ResponseEntity<Proveedor> delete(@PathVariable Long id) {
+    public ResponseEntity<Proveedor> delete(@PathVariable Integer id) {
         Proveedor proveedor = proveedorService.get((id));
         if (proveedor != null){
             proveedorService.delete(id);

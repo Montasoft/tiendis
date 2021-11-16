@@ -29,12 +29,12 @@ public class EstadoCarritoController {
         return new ResponseEntity<EstadoCarrito>(obj, HttpStatus.OK);
     }
     @GetMapping(value = "/find/{id}")
-    public EstadoCarrito find(@PathVariable Long id) {
+    public EstadoCarrito find(@PathVariable Integer id) {
         return estadoCarritoService.get(id);
     }
 
-    @PostMapping(value= "/delete/{id}")
-    public ResponseEntity<EstadoCarrito> delete(@PathVariable Long id) {
+    @DeleteMapping(value= "/delete/{id}")
+    public ResponseEntity<EstadoCarrito> delete(@PathVariable Integer id) {
         EstadoCarrito estadoCarrito = estadoCarritoService.get((id));
         if (estadoCarrito != null){
             estadoCarritoService.delete(id);

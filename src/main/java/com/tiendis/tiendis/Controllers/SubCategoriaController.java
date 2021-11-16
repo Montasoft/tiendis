@@ -27,12 +27,12 @@ public class SubCategoriaController {
         return new ResponseEntity<SubCategoria>(obj, HttpStatus.OK);
     }
     @GetMapping(value = "/find/{id}")
-    public SubCategoria find(@PathVariable Long id) {
+    public SubCategoria find(@PathVariable Integer id) {
         return subCategoriaService.get(id);
     }
 
     @PostMapping(value= "/delete/{id}")
-    public ResponseEntity<SubCategoria> delete(@PathVariable Long id) {
+    public ResponseEntity<SubCategoria> delete(@PathVariable Integer id) {
         SubCategoria subCategoria = subCategoriaService.get((id));
         if (subCategoria != null){
             subCategoriaService.delete(id);
