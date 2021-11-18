@@ -1,8 +1,6 @@
 package com.tiendis.tiendis.Controllers;
 
-import com.tiendis.tiendis.entity.Categoria;
 import com.tiendis.tiendis.entity.Ciudad;
-import com.tiendis.tiendis.service.CategoriaService;
 import com.tiendis.tiendis.service.CiudadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

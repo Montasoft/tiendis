@@ -7,6 +7,10 @@
 LAZY O EAGER en los FetchType de los ManyToOne
 
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	EN UNA TABLA ME FUE NECESARIO Y EN OTRA NO.
+
+
 Devolver el valor de la llave foranea.
  me devuelve pidiendo el Integr de Banco.GetId, pero al agregar un registro nuevo no funciona-
 

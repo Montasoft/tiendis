@@ -1,5 +1,7 @@
 package com.tiendis.tiendis.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +18,7 @@ public class Ciudad {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name= "IdDepartamento")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Departamento departamento;
 
 
