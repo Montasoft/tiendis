@@ -23,6 +23,10 @@ public class Ciudad {
     public Ciudad() {
     }
 
+    public Ciudad(String id) {
+        this.id = id;
+    }
+
     public Ciudad(String id, String nombre, Departamento departamento) {
         this.id = id;
         this.nombre = nombre;

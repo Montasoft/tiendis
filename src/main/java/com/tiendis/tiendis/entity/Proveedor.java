@@ -22,8 +22,9 @@ public class Proveedor {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Ciud4d")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Ciudad ciudad;
+
 
     @Column(name = "direcci0n", length = 50)
     private String direccion;
