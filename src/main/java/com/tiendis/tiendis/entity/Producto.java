@@ -1,4 +1,6 @@
 package com.tiendis.tiendis.entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,10 +17,12 @@ public class Producto {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoriaId")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Categoria categoria;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subcategoriaId")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private SubCategoria subCategoria;
 
     @Column(name = "Existencias")
@@ -47,6 +51,7 @@ public class Producto {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "proveedor")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Proveedor proveedor;
 
     // *********** CONSTRUCTORES *****************
