@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value=  "api/cliente")
@@ -33,15 +35,18 @@ public class ClienteController {
         return clienteService.get(id);
     }
 
-    @PostMapping(value = "/delete/{id}")
-    public ResponseEntity<Cliente> delete(@PathVariable Integer id){
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Integer id){
+        Map<String, Object> map = new HashMap<>();
         Cliente cliente = clienteService.get(id);
         if (cliente != null){
             clienteService.delete(id);
         }else{
-            return new ResponseEntity<Cliente>(cliente, HttpStatus.INTERNAL_SERVER_ERROR);
+            map.put("Error", "No existe registro con el id indicado");
+            return new ResponseEntity<String>(map.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<Cliente>(cliente, HttpStatus.OK) ;
+        map.put("success", "\"Registro eliminado con éxito\"" );
+        return new ResponseEntity<String>(map.toString(), HttpStatus.OK) ;
     }
 
 }

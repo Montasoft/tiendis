@@ -1,5 +1,7 @@
 package com.tiendis.tiendis.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +21,7 @@ public class Cliente {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn (name= "tipoDoc")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private TipoDocum tipoDocum;
 
     @Column (name= "numDoc", length = 20)
@@ -26,6 +29,7 @@ public class Cliente {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ciudad")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Ciudad ciudad;
 
     @Column(name= "direccion", length = 250)
@@ -39,6 +43,7 @@ public class Cliente {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn (name= "tipoCliente")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private TipoCliente tipoCliente;
 
     @Column (name= "telefono", length = 10)
@@ -49,6 +54,7 @@ public class Cliente {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn (name= "tipoComercio")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private TipoComercio tipoComercio;
 
     @Column (name= "nomComercio", length = 150)

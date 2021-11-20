@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value=  "api/carrito")
@@ -34,14 +36,17 @@ public class CarritoController {
     }
 
     @PostMapping(value = "/delete/{id}")
-    public ResponseEntity<Carrito> delete(@PathVariable Integer id){
+    public ResponseEntity<String> delete(@PathVariable Integer id){
+        Map<String, Object> map = new HashMap<>();
         Carrito carrito = carritoService.get(id);
         if (carrito != null){
             carritoService.delete(id);
         }else{
-            return new ResponseEntity<Carrito>(carrito, HttpStatus.INTERNAL_SERVER_ERROR);
+            map.put("Error", "No existe registro con el id indicado");
+            return new ResponseEntity<String>(map.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<Carrito>(carrito, HttpStatus.OK) ;
+        map.put("success", "\"Registro eliminado con éxito\"" );
+        return new ResponseEntity<String>(map.toString(), HttpStatus.OK) ;
     }
 
 }
