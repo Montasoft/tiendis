@@ -1,6 +1,7 @@
 package com.tiendis.tiendis.Controllers;
 
-import com.tiendis.tiendis.Repository.CategoriaRepository;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.tiendis.tiendis.commons.ResponseHandler;
 import com.tiendis.tiendis.entity.Categoria;
 import com.tiendis.tiendis.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/cat/")
@@ -33,13 +36,16 @@ public class CategoriaController {
     }
 
     @DeleteMapping(value= "/delete/{id}")
-    public ResponseEntity<Categoria> delete(@PathVariable Integer id) {
-        Categoria categoria = categoriaService.get((id));
-        if (categoria != null){
-            categoriaService.delete(id);
-        }else{
-            return new ResponseEntity<Categoria>(categoria, HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<Object> delete(@PathVariable Integer id) {
+        try {
+            Categoria categoria = categoriaService.get((id));
+            if (categoria != null){
+                categoriaService.delete(id);
+            }else {
+                return ResponseHandler.generateResponse("No existe registro con el id indicado", HttpStatus.OK, null);
+            }
+            return ResponseHandler.generateResponse("Registro Eliminado con éxito", HttpStatus.OK, null);
+        } catch (Exception e){
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, null);
         }
-        return new ResponseEntity<Categoria>(categoria, HttpStatus.OK);
-    }
-}
+    }}

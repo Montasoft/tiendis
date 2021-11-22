@@ -1,6 +1,8 @@
 package com.tiendis.tiendis.Controllers;
 
 
+import com.tiendis.tiendis.commons.ResponseHandler;
+import com.tiendis.tiendis.entity.Categoria;
 import com.tiendis.tiendis.entity.Cliente;
 import com.tiendis.tiendis.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,17 +38,16 @@ public class ClienteController {
     }
 
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable Integer id){
-        Map<String, Object> map = new HashMap<>();
-        Cliente cliente = clienteService.get(id);
-        if (cliente != null){
-            clienteService.delete(id);
-        }else{
-            map.put("Error", "No existe registro con el id indicado");
-            return new ResponseEntity<String>(map.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<Object> delete(@PathVariable Integer id) {
+        try {
+            Cliente cliente = clienteService.get((id));
+            if (cliente != null){
+                clienteService.delete(id);
+            }else {
+                return ResponseHandler.generateResponse("No existe registro con el id indicado", HttpStatus.OK, null);
+            }
+            return ResponseHandler.generateResponse("Registro Eliminado con éxito", HttpStatus.OK, null);
+        } catch (Exception e){
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, null);
         }
-        map.put("success", "\"Registro eliminado con éxito\"" );
-        return new ResponseEntity<String>(map.toString(), HttpStatus.OK) ;
-    }
-
-}
+    }}

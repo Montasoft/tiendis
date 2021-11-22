@@ -1,8 +1,5 @@
 package com.tiendis.tiendis;
 
-import com.tiendis.tiendis.Repository.CategoriaRepository;
-import com.tiendis.tiendis.Repository.ProductoRepository;
-import com.tiendis.tiendis.Repository.SubCategoriaRepository;
 import com.tiendis.tiendis.entity.Categoria;
 import com.tiendis.tiendis.entity.SubCategoria;
 import org.apache.juli.logging.Log;

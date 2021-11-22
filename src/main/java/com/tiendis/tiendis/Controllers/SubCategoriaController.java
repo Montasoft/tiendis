@@ -1,5 +1,7 @@
 package com.tiendis.tiendis.Controllers;
 
+import com.tiendis.tiendis.commons.ResponseHandler;
+import com.tiendis.tiendis.entity.Categoria;
 import com.tiendis.tiendis.entity.SubCategoria;
 import com.tiendis.tiendis.service.SubCategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/subcat/")
@@ -32,13 +36,17 @@ public class SubCategoriaController {
     }
 
     @DeleteMapping(value= "/delete/{id}")
-    public ResponseEntity<SubCategoria> delete(@PathVariable Integer id) {
-        SubCategoria subCategoria = subCategoriaService.get((id));
-        if (subCategoria != null){
-            subCategoriaService.delete(id);
-        }else{
-            return new ResponseEntity<SubCategoria>(subCategoria, HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<Object> delete(@PathVariable Integer id) {
+        try {
+            SubCategoria subCategoria = subCategoriaService.get((id));
+            if (subCategoria != null){
+                subCategoriaService.delete(id);
+            }else {
+                return ResponseHandler.generateResponse("No existe registro con el id indicado", HttpStatus.OK, null);
+            }
+            return ResponseHandler.generateResponse("Registro Eliminado con éxito", HttpStatus.OK, null);
+        } catch (Exception e){
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, null);
         }
-        return new ResponseEntity<SubCategoria>(subCategoria, HttpStatus.OK);
     }
 }

@@ -1,3 +1,5 @@
+uso de nombre de tablas y campos como banc0 en lugar de banco
+
 @JsonIgnore
 
 @ManytoOne
@@ -19,3 +21,4 @@ Devolver el valor de la llave foranea.
 
 conviene mejor marcar los registros como eliminados y quitarlos de la tabla?
 
+Que codigo HTTP devolver cuando no encuentro el registro.
