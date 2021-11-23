@@ -1,5 +1,6 @@
 package com.tiendis.tiendis.commons;
 
+import com.tiendis.tiendis.entity.Producto;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
