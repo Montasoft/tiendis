@@ -3,8 +3,11 @@ package com.tiendis.tiendis.service.Implement;
 import com.tiendis.tiendis.DAO.ClienteDAO;
 import com.tiendis.tiendis.commons.GenericServiceImpl;
 import com.tiendis.tiendis.entity.Cliente;
+import com.tiendis.tiendis.entity.Producto;
 import com.tiendis.tiendis.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +21,10 @@ public class ClienteServiceImpl extends GenericServiceImpl<Cliente, Integer> imp
     public CrudRepository<Cliente, Integer> getDao() {
         return clienteDAO;
     }
+
+    @Override
+    public Page<Cliente> getAll(Pageable pageable){
+        return clienteDAO.findAll(pageable);
+    }
+
 }

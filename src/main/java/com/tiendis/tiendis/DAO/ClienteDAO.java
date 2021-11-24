@@ -1,7 +1,7 @@
 package com.tiendis.tiendis.DAO;
 
 import com.tiendis.tiendis.entity.Cliente;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface ClienteDAO extends CrudRepository<Cliente, Integer> {
+public interface ClienteDAO extends PagingAndSortingRepository<Cliente, Integer> {
 }

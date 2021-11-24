@@ -62,22 +62,12 @@ public class ProductoController {
         PageRequest pageRequest = PageRequest.of(page, size);
         Page<Producto> productoPage = productoService.getAll(pageRequest);
 
-//        ProductoDAO productoDAO = getProductoPageable(page, size);
-        return productoService.getAll(PageRequest.of(page, size)).getContent();
-    }
-    /*
-    public String findAll(@RequestParam Map<String, Object> params, Model model){
-        int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString())-1) :0;
-
-        PageRequest pageRequest = PageRequest.of(page, 10);
-        Page<Producto> productoPage = productoService.getAll(pageRequest);
         int totalPages = productoPage.getTotalPages();
         if (totalPages >0){
             List<Integer> pages = IntStream.rangeClosed(1,totalPages).boxed().collect(Collectors.toList());
         }
-        model.addAttribute ("list", productoPage.getContent());
-        return productoPage;
-    }
 
-     */
+//        ProductoDAO productoDAO = getProductoPageable(page, size);
+        return productoService.getAll(PageRequest.of(page, size)).getContent();
+    }
 }

@@ -1,4 +1,4 @@
-uso de nombre de tablas y campos como banc0 en lugar de banco
+uso de nombre de tablas y campos como "banc0" en lugar de "banco"
 
 @JsonIgnore
 
@@ -12,7 +12,7 @@ LAZY O EAGER en los FetchType de los ManyToOne
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	EN UNA TABLA ME FUE NECESARIO Y EN OTRA NO.
 
-cobiene o no el usu de Lombok
+conviene o no el usu de Lombok
 
 
 Devolver el valor de la llave foranea.
@@ -20,5 +20,6 @@ Devolver el valor de la llave foranea.
 
 
 conviene mejor marcar los registros como eliminados y quitarlos de la tabla?
+
 
 Que codigo HTTP devolver cuando no encuentro el registro.
