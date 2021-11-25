@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Categoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //En postgreSQL no corria con IDENTITY.
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IdCat", columnDefinition = "serial", nullable = false, unique = true )
     private int id;
 
@@ -16,7 +16,6 @@ public class Categoria {
 
     @Column(name = "descripcion", length = 250)
     private String descripcion;
-
 
     //@OneToMany(mappedBy = "categoria")
     //@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
