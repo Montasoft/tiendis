@@ -15,12 +15,13 @@ public class Producto {
     @Column(name = "nombre", length = 150)
     private String nombre;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "categoriaId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Categoria categoria;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    //@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "subcategoriaId")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private SubCategoria subCategoria;
@@ -49,7 +50,10 @@ public class Producto {
     @Column(name = "descripcion", length = 256)
     private String descripcion;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "imagenes", length = 256)
+    private String imagenes;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "proveedor")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Proveedor proveedor;
@@ -59,11 +63,12 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(String nombre, Categoria categoria, SubCategoria subCategoria, double existencias, int stockMin, int canEmp, int estado, double costo, double precio1, double precio2, String descripcion, Proveedor proveedor) {
+    public Producto(int id, String nombre, Categoria categoria, SubCategoria subCategoria, double existencias, int stockMin, int canEmp, int estado, double costo, double precio1, double precio2, String descripcion, String imagenes, Proveedor proveedor) {
+        this.id = id;
         this.nombre = nombre;
         this.categoria = categoria;
         this.subCategoria = subCategoria;
-        this.Existencias = existencias;
+        Existencias = existencias;
         this.stockMin = stockMin;
         this.canEmp = canEmp;
         this.estado = estado;
@@ -71,10 +76,19 @@ public class Producto {
         this.precio1 = precio1;
         this.precio2 = precio2;
         this.descripcion = descripcion;
+        this.imagenes = imagenes;
         this.proveedor = proveedor;
     }
 
-    // *************** GETTERS AND SETTERS ***************
+// *************** GETTERS AND SETTERS ***************
+
+    public String getImagenes() {
+        return imagenes;
+    }
+
+    public void setImagenes(String imagenes) {
+        this.imagenes = imagenes;
+    }
 
     public int getId() {
         return id;
@@ -182,7 +196,6 @@ public class Producto {
 
 
     // ************* ToString ******************
-
     @Override
     public String toString() {
         return "Producto{" +
@@ -198,6 +211,7 @@ public class Producto {
                 ", precio1=" + precio1 +
                 ", precio2=" + precio2 +
                 ", descripcion='" + descripcion + '\'' +
+                ", imagenes='" + imagenes + '\'' +
                 ", proveedor=" + proveedor +
                 '}';
     }
